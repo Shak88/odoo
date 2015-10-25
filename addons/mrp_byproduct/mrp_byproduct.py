@@ -106,7 +106,8 @@ class mrp_production(osv.osv):
                     'location_id': source,
                     'location_dest_id': production.location_dest_id.id,
                     'move_dest_id': production.move_prod_id.id,
-                    'production_id': production.id
+                    'production_id': production.id,
+                    'origin': production.name,
                 }
                 move_id = move_obj.create(cr, uid, data, context=context)
                 move_obj.action_confirm(cr, uid, [move_id], context=context)
